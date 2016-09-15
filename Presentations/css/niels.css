@@ -1,0 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Economica:400,700,400italic,700italic&subset=latin,latin-ext);
+
+body {
+    background: #272822;
+    color: #f5f4f1;
+
+}
+
+.reveal {
+	font-size: 25px;
+}
+
+.reveal h1 {
+    color: #f92672;
+}
+
+.reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal li {
+    color: #f5f4f1;
+    font-family: 'Economica', sans-serif;
+}
+
+.reveal h1 {
+	font-weight: bold;
+    font-family: 'Economica', sans-serif;
+}
+
+.reveal p, .reveal li {
+    font-size: 1.3em;
+}
+
+.reveal a {
+    color: #a6e22e;
+}
+.reveal a:hover {
+    color: #a6e22e;
+}
+
+.reveal img, .reveal video, .reveal iframe {
+    max-width: 35%;
+    max-height: 35%;
+}
+
+.reveal blockquote {
+    margin: 0 0 0 4em;
+    padding: 0.1em 0.5em;
+    quotes: '„' '”'; 
+    font-style: italic;
+    font-size: 1.1em;
+    box-shadow: 0 0 0;
+    background: #383830;
+}
+
+.reveal blockquote > p {
+    text-align: left;
+    font-weight: bold;
+    color: #f4bf75;
+}
+
+.reveal blockquote > p:before { content: open-quote }
+.reveal blockquote > p:after  { content: close-quote }
+
+.reveal figcaption { display: none; }
+
+table {
+    color: #f5f4f1;
+}
+
+.reveal h1 {
+	    font-size: 3em;
+    }
+
+.reveal h2 {
+	    font-size: 2em;
+    }
+
+.reveal h3 {
+	    font-size: 2em;
+    }
+
+.reveal section img {
+	border: 0.5em solid #383830;
+}
+
+.bgvideo h1 {
+    font-size: 4.5em;
+    background-color: rgba(15, 16, 13, 0.8);
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.inverse h1, .inverse p, .inverse h1, .inverse h2, .inverse h3, .inverse li {
+    color: #272822;
+}
+
+.speaker-controls-notes .value {
+    font-size: 0.5em;
+}

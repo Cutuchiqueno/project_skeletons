@@ -24,3 +24,6 @@ onlinepres: presentation.html
 
 clean: onlinepres
 	rm -rf $(PROJNAME)
+
+bootstrap: 
+	git clone git@github.com:hakimel/reveal.js.git

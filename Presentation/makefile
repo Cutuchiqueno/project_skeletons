@@ -26,6 +26,9 @@ clean: onlinepres
 	rm -rf $(PROJNAME)
 
 bootstrap: 
-	rm -rf .svn
-	git clone git@github.com:hakimel/reveal.js.git
-	rm -rf reveal.js/.git
+	@echo remove .svn repository folder
+	@rm -rf .svn
+	@echo clone reveal.js github repository
+	@git clone git@github.com:hakimel/reveal.js.git
+	@echo remove .git repository folder
+	@rm -rf reveal.js/.git

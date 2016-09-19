@@ -1,3 +1,4 @@
+# TODO: remove old presentation.html rule, adapt onlinepres to publish rule, add new scope event in which the Presentation folder is only one element, add .gitignore
 PROJNAME = $(shell pwd | grep -oP '(\w|-)+' | tail -n 2 | head -n 1 | tr '[:upper:]' '[:lower:]')
 
 # all: $(PROJNAME).html _presentation.html onlinepres clean

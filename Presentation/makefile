@@ -29,6 +29,8 @@ clean: onlinepres
 bootstrap: 
 	@echo remove .svn repository folder
 	@rm -rf .svn
+	@echo clone font-awesome fonts
+	@curl https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/css/font-awesome.min.css > Includes/FontAwesome/font-awesome.min.css
 	@echo clone reveal.js github repository
 	@git clone git@github.com:hakimel/reveal.js.git
 	@echo remove .git repository folder

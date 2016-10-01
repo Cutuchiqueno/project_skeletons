@@ -26,9 +26,7 @@ publish:
 
 slides.pdf: index.html
 	curl -L https://github.com/astefanutti/decktape/archive/v1.0.0.tar.gz | tar -xz --exclude phantomjs
-	cd decktape-1.0.0
 	curl -L https://github.com/astefanutti/decktape/releases/download/v1.0.0/phantomjs-linux-x86-64 -o phantomjs
 	chmod +x phantomjs
-	cd ..
-	./decktape-1.0.0/phantomjs decktape.js reveal slides.pdf
-	rm -rf decktape-1.0.0
+	./phantomjs ./decktape-1.0.0/decktape.js reveal index.html slides.pdf
+	rm -rf decktape-1.0.0 phantomjs

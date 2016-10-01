@@ -1,5 +1,5 @@
-# TODO: add new scope event in which the Presentation folder is only one element, add .gitignore
 EVENTNAME = $(shell pwd | grep -oP '(\w|-)+' | tail -n 2 | head -n 1 | tr '[:upper:]' '[:lower:]')
+
 .PHONY: all init publish
 
 all: publish 
@@ -13,6 +13,8 @@ init:
 	@git clone git@github.com:hakimel/reveal.js.git
 	@echo remove .git repository folder
 	@rm -rf reveal.js/.git
+	@mkdir reveal.js/plugin/printRevealNotes
+	wget https://gist.githubusercontent.com/geek1011/1841acca111b7dbb3cd902497f255ba0/raw/fc3f7d5541859cf1a4abf7eafec63b06ac081d98/PrintRevealNotes.js
 
 publish:
 	@echo Copy Slides to Presentation Folder on Server

@@ -40,14 +40,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
       Reveal.initialize({
 	history: true,
 	controls: false,
+	transition: 'slide',
+	// showNotes: true,
 
 	dependencies: [
 	  { src: 'reveal.js/plugin/markdown/marked.js' },
 	  { src: 'reveal.js/plugin/markdown/markdown.js' },
 	  { src: 'reveal.js/plugin/notes/notes.js', async: true },
+	  { src: 'reveal.js/plugin/printRevealNotes/PrintRevealNotes.js'},
 	  { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 	]
       });
     </script>
+    <script src="reveal.js/plugin/PrintRevealNotes.js">PrintRevealNotes()</script>
   </body>
 </html>

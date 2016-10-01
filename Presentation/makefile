@@ -1,6 +1,6 @@
-# TODO: remove old presentation.html rule, adapt onlinepres to publish rule, add new scope event in which the Presentation folder is only one element, add .gitignore
+# TODO: add new scope event in which the Presentation folder is only one element, add .gitignore
 EVENTNAME = $(shell pwd | grep -oP '(\w|-)+' | tail -n 2 | head -n 1 | tr '[:upper:]' '[:lower:]')
-.PHONY: all init publish test
+.PHONY: all init publish
 
 all: publish 
 
@@ -22,10 +22,13 @@ publish:
 	if [ -d "./Includes" ]; then cp -r ./Includes $(EVENTNAME)/; fi
 	if [ -d "./Overrides" ]; then cp -r ./Overrides $(EVENTNAME)/; fi
 	rsync --progress --delete -rae ssh $(EVENTNAME) cutuchiqueno@web385.webfaction.com:webapps/htdocs/slides/
-	
-test:
-	@echo ${PROJNAME}
-	#
-# clean: onlinepres
-# 	rm -rf $(PROJNAME)
+	rm $(EVENTNAME)
 
+slides.pdf: index.html
+	curl -L https://github.com/astefanutti/decktape/archive/v1.0.0.tar.gz | tar -xz --exclude phantomjs
+	cd decktape-1.0.0
+	curl -L https://github.com/astefanutti/decktape/releases/download/v1.0.0/phantomjs-linux-x86-64 -o phantomjs
+	chmod +x phantomjs
+	cd ..
+	./decktape-1.0.0/phantomjs decktape.js reveal slides.pdf
+	rm -rf decktape-1.0.0

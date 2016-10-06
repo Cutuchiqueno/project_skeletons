@@ -1,8 +1,8 @@
 EVENTNAME = $(shell pwd | grep -oP '(\w|-)+' | tail -n 2 | head -n 1 | tr '[:upper:]' '[:lower:]')
 
-.PHONY: all init publish
+.PHONY: all init publish archive
 
-all: publish 
+all: publish slides.pdf archive
 
 init: 
 	@echo remove .svn repository folder
@@ -32,3 +32,17 @@ slides.pdf: index.html
 	chmod +x phantomjs
 	./phantomjs ./decktape-1.0.0/decktape.js reveal index.html slides.pdf
 	rm -rf decktape-1.0.0 phantomjs
+
+archive: index.html
+	# commands are merged into one line by backslash because otherwise the
+	# user input is lost (one shell per command)
+	-@read -p "Presentation title: " TITLE; \
+	read -p "Conference: " CONFERENCE; \
+	read -p "Date: " DATE; \
+	read -p "Place: " PLACE; \
+	read -p "Hashtag: " HASH; \
+	echo "- [$$TITLE](http://nowalkowski.de/slides/$(EVENTNAME)/) ([Source](presentations/$(EVENTNAME)/index.html)) - _$$CONFERENCE, $$DATE, $$PLACE_" >> /home/cutuchiqueno/Research/GitHub-Output/README.md; \
+	mkdir /home/cutuchiqueno/Research/GitHub-Output/presentations/$(EVENTNAME); \
+	cp -r Includes/ Overwrites/ index.html reveal.js/ slides.pdf /home/cutuchiqueno/Research/GitHub-Output/presentations/$(EVENTNAME)/; \
+	# t update "my presentation: $$TITLE on https://github.com/Cutuchiqueno/output/ #jtdh2016" FUNKTIONIERT NOCH NICHT
+	-cd /home/cutuchiqueno/Research/GitHub-Output/ && git add . && git commit -a -m "add presentation for $(EVENTNAME)" && git push

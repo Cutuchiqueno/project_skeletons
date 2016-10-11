@@ -22,9 +22,9 @@ publish:
 	cp index.html $(EVENTNAME)/index.html	
 	cp -r ./reveal.js $(EVENTNAME)/
 	if [ -d "./Includes" ]; then cp -r ./Includes $(EVENTNAME)/; fi
-	if [ -d "./Overrides" ]; then cp -r ./Overrides $(EVENTNAME)/; fi
+	if [ -d "./Overwrites" ]; then cp -r ./Overwrites $(EVENTNAME)/; fi
 	rsync --progress --delete -rae ssh $(EVENTNAME) cutuchiqueno@web385.webfaction.com:webapps/htdocs/slides/
-	rm $(EVENTNAME)
+	rm -rf $(EVENTNAME)
 
 slides.pdf: index.html
 	curl -L https://github.com/astefanutti/decktape/archive/v1.0.0.tar.gz | tar -xz --exclude phantomjs

@@ -14,7 +14,7 @@ init:
 	@echo remove .git repository folder
 	@rm -rf reveal.js/.git
 	@mkdir reveal.js/plugin/printRevealNotes
-	wget https://gist.githubusercontent.com/geek1011/1841acca111b7dbb3cd902497f255ba0/raw/fc3f7d5541859cf1a4abf7eafec63b06ac081d98/PrintRevealNotes.js
+	curl https://gist.githubusercontent.com/geek1011/1841acca111b7dbb3cd902497f255ba0/raw/fc3f7d5541859cf1a4abf7eafec63b06ac081d98/PrintRevealNotes.js >> reveal.js/plugin/printRevealNotes/PrintRevealNotes.js
 
 publish:
 	@echo Copy Slides to Presentation Folder on Server

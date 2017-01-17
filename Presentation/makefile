@@ -15,6 +15,8 @@ init:
 	@rm -rf reveal.js/.git
 	@mkdir reveal.js/plugin/printRevealNotes
 	curl https://gist.githubusercontent.com/geek1011/1841acca111b7dbb3cd902497f255ba0/raw/fc3f7d5541859cf1a4abf7eafec63b06ac081d98/PrintRevealNotes.js >> reveal.js/plugin/printRevealNotes/PrintRevealNotes.js
+	@echo export alias to showpresentation
+	@alias showpresentation="google-chrome-stable --app='file:///home/cutuchiqueno/Dariah/Output/DHd-2017/Presentation/index.html' &>/dev/null &"
 
 publish:
 	@echo Copy Slides to Presentation Folder on Server

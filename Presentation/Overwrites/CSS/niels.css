@@ -11,13 +11,14 @@
 	padding-bottom: 20px;
 }
 
-.reveal h1 {
+.reveal h1, .reveal h2, .reveal h3 {
 	color: #f5f4f1;
 	font-weight: bold;
 	font-family: 'Economica', sans-serif;
+	font-size: 2.5em;
 }
 
-.reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal li {
+.reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal li {
 	color: #a59f85;
 	font-family: 'Economica', sans-serif;
 }
@@ -63,18 +64,6 @@ table {
     color: #f5f4f1;
 }
 
-.reveal h1 {
-	    font-size: 3em;
-    }
-
-.reveal h2 {
-	    font-size: 2em;
-    }
-
-.reveal h3 {
-	    font-size: 2em;
-    }
-
 .reveal section img {
 	border: 0.5em solid #383830;
 }
@@ -94,33 +83,47 @@ table {
     font-size: 11px;
 }
 
-/* POSITIONS AND LAYOUT */
+/* ELEMENT STYLES */
 
-/* TODO: Does not work perfectly. Try just with floats
-
-.twocleft {
-  left:-8.33%;
-  text-align: left;
+/* makes fragment images overlapping */
+section img.fragment {
   float: left;
-  width:49%;
-  z-index:-10;
+  margin-right: -60%;
+  width: 60%;
 }
 
-.twocright {
-  left:31.25%;
-  top: 75px;
-  float: right;
-  text-align: right;
-  z-index:-10;
-  width:49%;
+/* highlight with colorized areas */
+section div.fragment.highlight {
+  z-index: 2;
+  position: absolute;
+  opacity: 0.2
 }
 
-.reveal .twocright video {
-  min-width: 95%;
-  max-width: 95%;
+/* DIFFERENT SLIDE LAYOUTS */
+
+/* full slide image */
+.layout-full-img .reveal section img {
+  border: 0;
+  box-shadow: none;
+  max-height: 80%;
+  max-width: 80%;
 }
 
-/* DIFFERENT SLIDE THEMES */
+
+/* STATE THEMES */
+
+/* front theme */
+
+p.event {
+  color: #a59f85;
+  font-size: 1.9em;
+  font-weight: bold;
+}
+
+p.signature {
+  color: #a59f85;
+  font-size: 1em;
+}
 
 /* blue theme */
 
@@ -196,3 +199,4 @@ table {
   background-color: #fd971f;;
   color: #272822;
 }
+
